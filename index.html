@@ -18,36 +18,59 @@
             h1{
                 color: #333;
                 margin-bottom: 20px;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                font-size: xx-large;
             }
             input{
-                padding: 10px;
-                width: 250px;
+                padding: 10px 20px;
+                width: 400px;
+                height: 20px;
                 border: 1px solid #ccc;
-                border-radius: 6px;
+                border-radius: 5px;
+                border-color: #0fb300;
+                font-size: larger;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                letter-spacing: 0ch;
+                cursor: initial;
+
+            }
+            input:focus{
+                outline: none;
             }
             button{
-                padding: 10px 15px;
+                padding: 15px 15px;
+                height: 40px;
                 margin-left: 10px;
                 background-color: #007bff;
                 color: white;
                 border: none;
                 border-radius: 6px;
                 cursor: pointer;
+                text-align: center;
+                font-weight: bold;
             }
             button:hover{
-                background-color: #0056b3;                
+                background-color: #0fb300;                
             }
             ul{
                 list-style: none;
                 padding: 0;
                 margin-top: 20px;
-            }
+            }            
             li{
                 background-color: white;
                 padding: 12px;
                 margin-bottom: 10px;
                 border-radius: 6px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                font-size: medium;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                border: 1px solid #e0e0e0;
+            }           
+            li:hover{
+                border-color: #378add;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+                cursor: pointer;
             }
         </style>
     </head>
@@ -56,7 +79,7 @@
         <h1>Task Manager</h1>
 
         <input type="text" id="taskInput" placeholder="Escribe una nueva tarea"> <!-- ID para JS-->
-        <button id="addTaskBtn">Agregar tarea</button> <!-- ID para JS-->
+        <button id="addTaskBtn">AGREGAR TAREA</button> <!-- ID para JS-->
         <ul id="taskList"> <!-- Lista donde apareceran las tareas-->
             <li>Estudiar JavaScript</li> <!-- Ejemplo-->
         </ul>
@@ -80,6 +103,10 @@
                 if(e.target.tagName === "LI"){
                     e.target.remove();
                 }
+            });
+
+            input.addEventListener("keydown", function(e){
+                if(e.key === "Enter") button.click();
             });
         </script>
 
